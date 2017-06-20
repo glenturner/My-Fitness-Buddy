@@ -8,14 +8,18 @@ class HomeController extends Controller
 {
     public function welcome (){
         $title = 'Welcome to Fit Buddy!';
-        return view('welcome', compact('title'));
+        /*return view('welcome', compact('title'));*/
+        return view('welcome')->with('title',$title);
     }
 
     public function addMeals (){
-        return view('addMeals');
+        $title = 'Add your Meal';
+        return view('addMeals')->with('title',$title);
     }
 
     public function displayMeals (){
-        return view('displayMeals');
+        $title = 'Display Meals';
+        return view('displayMeals')->with('title',$title);
+
     }
 }
