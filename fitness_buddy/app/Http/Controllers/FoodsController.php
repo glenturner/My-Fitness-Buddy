@@ -19,7 +19,7 @@ class FoodsController extends Controller
         //SORT// return Food::where('food', 'Chicken')->get();
         //SQL SYNTAX// $posts = DB::('SELECT * FROM food');
         //take one// $posts = Food::orderBy('food', 'desc')->take(1)->get();*/
-         $posts = Food::orderBy('food', 'desc')->paginate(5);
+         $posts = Food::orderBy('created_at', 'desc')->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -30,7 +30,7 @@ class FoodsController extends Controller
      */
     public function create()
     {
-        return ('posts.create');
+        return view('posts.create');
     }
 
     /**
@@ -41,7 +41,23 @@ class FoodsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'meal' => 'required',
+            'food' => 'required',
+            'calories' => 'required',
+            'macronutrients' => 'required'
+
+        ]);
+        //Create Post
+        $post = new Food;
+        $post->meal = $request->input('meal');
+        $post->food = $request->input('food');
+        $post->calories = $request->input('calories');
+        $post->macronutrients = $request->input('macronutrients');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Meal Created');
+
     }
 
     /**
@@ -64,7 +80,8 @@ class FoodsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Food::find($id);
+        return view('posts.edit')->with('post', $post);
     }
 
     /**
@@ -76,7 +93,22 @@ class FoodsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'meal' => 'required',
+            'food' => 'required',
+            'calories' => 'required',
+            'macronutrients' => 'required'
+
+        ]);
+        //Create Post
+        $post = Food::find($id);
+        $post->meal = $request->input('meal');
+        $post->food = $request->input('food');
+        $post->calories = $request->input('calories');
+        $post->macronutrients = $request->input('macronutrients');
+        $post->save();
+
+        return redirect('/posts')->with('success', 'Meal Updated');
     }
 
     /**

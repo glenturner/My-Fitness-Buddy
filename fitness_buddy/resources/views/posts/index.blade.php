@@ -10,6 +10,8 @@
         <h4>calories: {{$post->calories}}</h4>
         <h4>macronutrients: {{$post->macronutrients}}</h4>
         <small>{{$post->created_at}}</small>
+        <hr>
+        <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
     </div>
     @endforeach
         {{$posts->links()}}

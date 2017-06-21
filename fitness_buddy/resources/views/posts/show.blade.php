@@ -8,4 +8,6 @@
                 <h4>macronutrients: {{$post->macronutrients}}</h4>
                 <small>This meal was posted on {{$post->created_at}}</small>
             </div>
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
+
 @endsection

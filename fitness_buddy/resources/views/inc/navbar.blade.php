@@ -12,7 +12,7 @@
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="/addMeals">Create Diet</a></li>
+                <li><a href="/posts/create">Create Diet</a></li>
                 <li><a href="/posts">View Diet</a></li>
             </ul>
         </div><!--/.nav-collapse -->
