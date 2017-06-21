@@ -12,6 +12,11 @@ class HomeController extends Controller
         return view('welcome')->with('title',$title);
     }
 
+    public function register (){
+        $title = 'Registration';
+        return view('register')->with('title',$title);
+    }
+
     public function addMeals (){
         $title = 'Add your Meal';
         return view('addMeals')->with('title',$title);

@@ -16,8 +16,11 @@
                 </label>
             </div>
             <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         </form>
-
+        <form class="form-signin">
+            <button class="btn btn-lg btn-primary btn-block" href="/register" id="#register" type="submit">Register</button>
+        </form>
     </div> <!-- /container -->
-@endsection
+
+
+   @endsection

@@ -2,5 +2,5 @@
 
 @section('content')
 <h1>{{$title}}</h1>
-<p>This page displays your meals</p>
+<h5>This page displays your meals</h5>
     @endsection

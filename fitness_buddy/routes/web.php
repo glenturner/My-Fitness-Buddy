@@ -12,5 +12,8 @@
 */
 
 Route::get('/','HomeController@welcome');
+Route::get('/register','HomeController@register');
 Route::get('/addMeals','HomeController@addMeals');
 Route::get('/displayMeals','HomeController@displayMeals');
+
+Route::resource('posts', 'FoodsController');
