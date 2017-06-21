@@ -14,7 +14,12 @@ class FoodsController extends Controller
      */
     public function index()
     {
-        $posts = Food::all();
+        // all comments in this function are examples of different way to take data //
+        //Get all foods// $posts = Food::all();
+        //SORT// return Food::where('food', 'Chicken')->get();
+        //SQL SYNTAX// $posts = DB::('SELECT * FROM food');
+        //take one// $posts = Food::orderBy('food', 'desc')->take(1)->get();*/
+         $posts = Food::orderBy('food', 'desc')->paginate(5);
         return view('posts.index')->with('posts', $posts);
     }
 
@@ -25,7 +30,7 @@ class FoodsController extends Controller
      */
     public function create()
     {
-        //
+        return ('posts.create');
     }
 
     /**
@@ -47,7 +52,8 @@ class FoodsController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Food::find($id);
+        return view('posts.show')->with('post', $post);
     }
 
     /**
