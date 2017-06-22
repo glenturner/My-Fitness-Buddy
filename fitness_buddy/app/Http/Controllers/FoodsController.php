@@ -54,6 +54,7 @@ class FoodsController extends Controller
         $post->food = $request->input('food');
         $post->calories = $request->input('calories');
         $post->macronutrients = $request->input('macronutrients');
+        $post->user_id = auth()->user()->id;
         $post->save();
 
         return redirect('/posts')->with('success', 'Meal Created');

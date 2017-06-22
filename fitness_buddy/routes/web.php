@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/','HomeController@welcome');
-Route::get('/register','HomeController@register');
-Route::get('/addMeals','HomeController@addMeals');
-Route::get('/displayMeals','HomeController@displayMeals');
+Route::get('/','FoodsController@index');
+Route::get('/create','FoodsController@create');
+Route::get('/show','FoodsController@show');
 
 Route::resource('posts', 'FoodsController');
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
