@@ -14,7 +14,7 @@ class FoodsController extends Controller
      */
     public function index()
     {
-        // all comments in this function are examples of different way to take data //
+        // all comments in this function are examples of different ways to take data //
         //Get all foods// $posts = Food::all();
         //SORT// return Food::where('food', 'Chicken')->get();
         //SQL SYNTAX// $posts = DB::('SELECT * FROM food');
@@ -119,6 +119,8 @@ class FoodsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Food::find($id);
+        $post->delete();
+        return redirect('/posts')->with('success', 'Meal Deleted');
     }
 }
