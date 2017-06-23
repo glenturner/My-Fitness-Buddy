@@ -15,7 +15,9 @@ Route::get('/','FoodsController@index');
 Route::get('/create','FoodsController@create');
 Route::get('/show','FoodsController@show');
 
+
 Route::resource('posts', 'FoodsController');
 Auth::routes();
+
 
 Route::get('/dashboard', 'DashboardController@index');

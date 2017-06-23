@@ -2,6 +2,9 @@
 
 @section('content')
     <a href="/posts" class="btn btn-default">Go Back</a>
+    @if(auth()->user()->id !==$post->user_id)
+
+        @if(Auth::user()->id == $post->user_id)
     <hr>
             <div class="well">
                 <h4>{{$post->food}}</h4>
@@ -9,8 +12,8 @@
                 <h4>macronutrients: {{$post->macronutrients}}</h4>
                 <small>This meal was posted on {{$post->created_at}}by {{$post->user->name}}</small>
             </div>
-            @if(!Auth::guest())
-                @if(Auth::user()->id == $post->user_id)
+
+
             <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
 
 

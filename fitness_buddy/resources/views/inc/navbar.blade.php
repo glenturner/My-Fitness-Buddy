@@ -24,9 +24,9 @@
             </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
+                    <li class="active"><a href="/dashboard">Home</a></li>
                     <li><a href="/posts/create">Create Diet</a></li>
-                    <li><a href="/posts">View Diet</a></li>
+                    <li><a href="/posts">Discover Meals</a></li>
                 </ul>
 
             <!-- Right Side Of Navbar -->

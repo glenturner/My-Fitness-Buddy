@@ -12,6 +12,9 @@ class FoodsController extends Controller
      *
      * @return void
      */
+    // Blocks unauthorized users for being able to edit any views that don't belong to them
+    // Adopts auth middleware functions
+     // exceptions allowing user to view individual page and index
     public function __construct()
     {
         $this->middleware('auth');/*, ['except' =>['index', 'show']]*/
@@ -68,7 +71,7 @@ class FoodsController extends Controller
         $post->user_id = auth()->user()->id;
         $post->save();
 
-        return redirect('/posts')->with('success', 'Meal Created');
+        return redirect('/dashboard')->with('success', 'Meal Created');
 
     }
 
@@ -93,6 +96,10 @@ class FoodsController extends Controller
     public function edit($id)
     {
         $post = Food::find($id);
+        // Check for Correct user
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
         return view('posts.edit')->with('post', $post);
     }
 
@@ -114,13 +121,19 @@ class FoodsController extends Controller
         ]);
         //Create Post
         $post = Food::find($id);
-        $post->meal = $request->input('meal');
-        $post->food = $request->input('food');
-        $post->calories = $request->input('calories');
-        $post->macronutrients = $request->input('macronutrients');
-        $post->save();
 
-        return redirect('/posts')->with('success', 'Meal Updated');
+        //Check for Correct User
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+
+            $post->meal = $request->input('meal');
+            $post->food = $request->input('food');
+            $post->calories = $request->input('calories');
+            $post->macronutrients = $request->input('macronutrients');
+            $post->save();
+
+        return redirect('/dashboard')->with('success', 'Meal Updated');
     }
 
     /**
@@ -132,7 +145,12 @@ class FoodsController extends Controller
     public function destroy($id)
     {
         $post = Food::find($id);
+        //Check for Correct User
+        if(auth()->user()->id !==$post->user_id){
+            return redirect('/posts')->with('error', 'Unauthorized Page');
+        }
+
         $post->delete();
-        return redirect('/posts')->with('success', 'Meal Deleted');
+        return redirect('/dashboard')->with('success', 'Meal Deleted');
     }
 }
