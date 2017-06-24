@@ -14,7 +14,7 @@
         {{Form::text('macronutrients', $post->macronutrients, ['class' => 'form-control', 'placeholder' => 'Protein'])}}
     </div>
     {{Form::hidden('_method', 'PUT')}}
-    {{Form::submit('Save', ['class' => 'btn btn-primary'])}}
+    {{Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'save'])}}
     {!! Form::close() !!}
 
 @endsection

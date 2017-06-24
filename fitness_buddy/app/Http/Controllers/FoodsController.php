@@ -33,7 +33,7 @@ class FoodsController extends Controller
         //SORT// return Food::where('food', 'Chicken')->get();
         //SQL SYNTAX// $posts = DB::('SELECT * FROM food');
         //take one// $posts = Food::orderBy('food', 'desc')->take(1)->get();*/
-         $posts = Food::orderBy('created_at', 'desc')->paginate(5);
+         $posts = Food::orderBy('created_at', 'desc')->paginate(2);
         return view('posts.index')->with('posts', $posts);
     }
 

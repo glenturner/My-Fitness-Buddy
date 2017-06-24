@@ -13,7 +13,7 @@
                 {{Form::label('macronutrients', 'Macronutrients')}}
                 {{Form::text('macronutrients', '', ['class' => 'form-control', 'placeholder' => 'Protein'])}}
         </div>
-        {{Form::submit('Save', ['class' => 'btn btn-primary'])}}
+        {{Form::submit('Save', ['class' => 'btn btn-primary', 'id' => 'save'])}}
         {!! Form::close() !!}
 
 @endsection

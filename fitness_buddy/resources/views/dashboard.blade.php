@@ -19,6 +19,8 @@
                             <th>Macronutrients</th>
                             <th>Date</th>
                             <th></th>
+                            <th></th>
+
                         </tr>
                         @foreach($foods as $food)
                             <tr>
