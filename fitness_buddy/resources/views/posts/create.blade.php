@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.create')
 
 @section('content')
         <h1>Enter Meal Below</h1>

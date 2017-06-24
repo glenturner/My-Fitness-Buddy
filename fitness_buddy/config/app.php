@@ -119,6 +119,7 @@ return [
     | Available Settings: "single", "daily", "syslog", "errorlog"
     |
     */
+    'log' => 'errorlog',
 
     'log' => env('APP_LOG', 'single'),
 
